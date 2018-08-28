@@ -1,0 +1,13 @@
+version: '3'
+services:
+  xmcc:
+    container_name: xmcc
+    build:
+        context: .
+        dockerfile: Dockerfile
+    tty: true
+    ports:
+    - "24157:24157"
+    environment:
+    - TZ=Europe/Paris
+    env_file: .env
