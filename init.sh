@@ -3,7 +3,7 @@
 # Docker
 
 apt-get update
-apt-get install \
+apt-get install -y \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -16,14 +16,14 @@ add-apt-repository \
    $(lsb_release -cs) \
    stable"
 apt-get update
-apt-get install docker-ce
+apt-get install -y docker-ce
 
 # Docker-compose 
 curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 
 # Firewall 
-apt-get install ufw
+apt-get install -y ufw
 ufw default allow outgoing
 ufw default deny incoming
 ufw allow ssh/tcp
