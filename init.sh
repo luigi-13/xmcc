@@ -32,7 +32,7 @@ ufw allow 24157/tcp
 ufw allow 24156/tcp
 ufw allow sftp/tcp
 ufw logging on
-ufw enable
+ufw --force enable
 
 #FailToBan
 apt -y install fail2ban
