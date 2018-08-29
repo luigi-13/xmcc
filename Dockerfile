@@ -35,4 +35,6 @@ RUN cd && \
 
 COPY *.sh ./
 
+EXPOSE 24157
+
 CMD [ "./start.sh" ]
