@@ -7,7 +7,8 @@ RUN apt-get -y install wget git pwgen && \
         apt-get -y install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils && \
         add-apt-repository ppa:bitcoin/bitcoin && \
         apt-get update && \
-        apt-get -y install libdb4.8-dev libdb4.8++-dev
+        apt-get -y install libdb4.8-dev libdb4.8++-dev\
+        apt-get -y install sudo
 
 RUN echo "monoeci ALL=(ALL) NOPASSWD : ALL" >> /etc/sudoers
 
