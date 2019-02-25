@@ -16,5 +16,6 @@ ARG MONOECICORE_VERSION="0.12.2.3"
 ARG MONOECICORE_FILENAME="monoeciCore-${MONOECICORE_VERSION}-linux64.tar.gz"
 ARG MONOECICORE_URL="https://github.com/monacocoin-net/monoeci-core/releases/download/v${MONOECICORE_VERSION}/${MONOECICORE_FILENAME}"
 WORKDIR /root
+RUN mkdir monoeciCore
 RUN wget ${MONOECICORE_URL} && \
-        tar xvf ${MONOECICORE_FILENAME} -C /monoeciCore 
+        tar xvf ${MONOECICORE_FILENAME} -C monoeciCore 
