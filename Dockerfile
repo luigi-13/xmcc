@@ -17,25 +17,7 @@ ARG MONOECICORE_FILENAME="monoeciCore-${MONOECICORE_VERSION}-linux64.tar.gz"
 ARG MONOECICORE_URL="https://github.com/monacocoin-net/monoeci-core/releases/download/v${MONOECICORE_VERSION}/${MONOECICORE_FILENAME}"
 WORKDIR /root
 RUN wget ${MONOECICORE_URL} && \
-        tar xvf ${MONOECICORE_FILENAME} && \
-        cp ~/monoeciCore-${MONOECICORE_VERSION}-linux64/monoecid /usr/bin/ && rm -fr ~/monoeciCore-${MONOECICORE_VERSION}-linux64/monoecid && \
-        cp ~/monoeciCore-${MONOECICORE_VERSION}-linux64/monoeci-cli /usr/bin/ && rm -fr ~/monoeciCore-${MONOECICORE_VERSION}-linux64/monoeci-cli && \
-        cp ~/monoeciCore-${MONOECICORE_VERSION}-linux64/monoeci-tx /usr/bin/ && rm -fr ~/monoeciCore-${MONOECICORE_VERSION}-linux64/monoeci-tx && \ 
-        rm -rf ${MONOECICORE_FILENAME}
+        tar xvf ${MONOECICORE_FILENAME} 
 
-RUN useradd --create-home monoeci && echo "monoeci:monoeci" | chpasswd && adduser monoeci sudo
-USER monoeci
-WORKDIR /home/monoeci
-RUN echo "COUCOU!!"
 
-RUN cd && \
-        git clone https://github.com/monacocoin-net/sentinel.git && \
-        cd sentinel && \
-        virtualenv ./venv && \
-        ./venv/bin/pip install -r requirements.txt
 
-COPY *.sh ./
-
-EXPOSE 24157
-
-CMD [ "./start.sh" ]
