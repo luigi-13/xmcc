@@ -18,4 +18,25 @@ ARG MONOECICORE_URL="https://github.com/monacocoin-net/monoeci-core/releases/dow
 WORKDIR /root
 RUN mkdir monoeciCore
 RUN wget ${MONOECICORE_URL} && \
-        tar xvf ${MONOECICORE_FILENAME} -C monoeciCore 
+        tar xvf ${MONOECICORE_FILENAME} -C monoeciCore && \
+        cp ~/monoeciCore/monoecid /usr/bin/ && rm -fr ~/monoeciCore/monoecid && \
+        cp ~/monoeciCore/monoeci-cli /usr/bin/ && rm -fr ~/monoeciCore/monoeci-cli && \
+        cp ~/monoeciCore/monoeci-tx /usr/bin/ && rm -fr ~/monoeciCore/monoeci-tx && \ 
+        rm -rf ${MONOECICORE_FILENAME}
+
+RUN useradd --create-home monoeci && echo "monoeci:monoeci" | chpasswd && adduser monoeci sudo
+USER monoeci
+WORKDIR /home/monoeci
+RUN echo "COUCOU!!"
+
+RUN cd && \
+        git clone https://github.com/monacocoin-net/sentinel.git && \
+        cd sentinel && \
+        virtualenv ./venv && \
+        ./venv/bin/pip install -r requirements.txt
+
+COPY *.sh ./
+
+EXPOSE 24157
+
+CMD [ "./start.sh" ]
