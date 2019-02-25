@@ -15,7 +15,6 @@ RUN echo "monoeci ALL=(ALL) NOPASSWD : ALL" >> /etc/sudoers
 ARG MONOECICORE_VERSION="0.12.2.3"
 ARG MONOECICORE_FILENAME="monoeciCore-${MONOECICORE_VERSION}-linux64.tar.gz"
 ARG MONOECICORE_URL="https://github.com/monacocoin-net/monoeci-core/releases/download/v${MONOECICORE_VERSION}/${MONOECICORE_FILENAME}"
-RUN echo "COUCOU"
 WORKDIR /root
 RUN wget ${MONOECICORE_URL} && \
         tar xvf ${MONOECICORE_FILENAME} && \
@@ -27,6 +26,7 @@ RUN wget ${MONOECICORE_URL} && \
 RUN useradd --create-home monoeci && echo "monoeci:monoeci" | chpasswd && adduser monoeci sudo
 USER monoeci
 WORKDIR /home/monoeci
+RUN echo "COUCOU!!"
 
 RUN cd && \
         git clone https://github.com/monacocoin-net/sentinel.git && \
