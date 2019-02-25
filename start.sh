@@ -29,6 +29,21 @@ maxconnections=24
 masternode=1
 masternodeprivkey=$masternodeprivkey
 externalip=$externalip
+addnode=201.239.210.74
+addnode=80.211.15.229
+addnode=80.211.160.108
+addnode=80.211.188.201
+addnode=212.237.14.13
+addnode=80.211.69.107
+addnode=80.211.69.140
+addnode=80.211.166.85
+addnode=80.211.83.119
+addnode=80.211.102.48
+addnode=80.211.102.23
+addnode=80.211.231.34
+addnode=80.211.162.85
+addnode=194.182.85.95
+addnode=212.237.31.81
 EOF
 
 # daemon
