@@ -19,9 +19,9 @@ ARG MONOECICORE_URL="https://github.com/monacocoin-net/monoeci-core/releases/dow
 WORKDIR /root
 RUN wget ${MONOECICORE_URL} && \
         tar xvf ${MONOECICORE_FILENAME} && \
-        cp ~/monoeciCore-0.12.2/bin/monoecid /usr/bin/ && rm -fr ~/monoeciCore-0.12.2/bin/monoecid && \
-        cp ~/monoeciCore-0.12.2/bin/monoeci-cli /usr/bin/ && rm -fr ~/monoeciCore-0.12.2/bin/monoeci-cli && \
-        cp ~/monoeciCore-0.12.2/bin/monoeci-tx /usr/bin/ && rm -fr ~/monoeciCore-0.12.2/bin/monoeci-tx && \ 
+        cp ~/monoeciCore-${MONOECICORE_VERSION}/bin/monoecid /usr/bin/ && rm -fr ~/monoeciCore-${MONOECICORE_VERSION}/bin/monoecid && \
+        cp ~/monoeciCore-${MONOECICORE_VERSION}/bin/monoeci-cli /usr/bin/ && rm -fr ~/monoeciCore-${MONOECICORE_VERSION}/bin/monoeci-cli && \
+        cp ~/monoeciCore-${MONOECICORE_VERSION}/bin/monoeci-tx /usr/bin/ && rm -fr ~/monoeciCore-${MONOECICORE_VERSION}/bin/monoeci-tx && \ 
         rm -rf ${MONOECICORE_FILENAME}
 
 RUN useradd --create-home monoeci && echo "monoeci:monoeci" | chpasswd && adduser monoeci sudo
